@@ -1,0 +1,3 @@
+Modulationsfrequenz: 	1kHz
+Trägerfrequenz:		10kHz
+Modulationsgrad:	100% (1)

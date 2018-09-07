@@ -1,0 +1,9 @@
+[0] Config.pm:302> INFO - This is Biber 2.10
+[0] Config.pm:305> INFO - Logfile is 'EIRE_Protokoll_David_Koke_Alex_Oster.blg'
+[26] biber-MSWIN64:313> INFO - === 
+[51] Biber.pm:371> INFO - Reading 'EIRE_Protokoll_David_Koke_Alex_Oster.bcf'
+[126] Biber.pm:857> INFO - Found 0 citekeys in bib section 0
+[132] Utils.pm:193> WARN - The file 'EIRE_Protokoll_David_Koke_Alex_Oster.bcf' does not contain any citations!
+[138] bbl.pm:617> INFO - Writing 'EIRE_Protokoll_David_Koke_Alex_Oster.bbl' with encoding 'UTF-8'
+[138] bbl.pm:720> INFO - Output to EIRE_Protokoll_David_Koke_Alex_Oster.bbl
+[142] Biber.pm:110> INFO - WARNINGS: 1
