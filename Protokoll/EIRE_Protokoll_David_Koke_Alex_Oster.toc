@@ -5,6 +5,6 @@
 \contentsline {section}{\numberline {3}Messstruktur f\IeC {\"u}r Analog-Digital-Wandler}{3}{section.3}
 \contentsline {subsection}{\numberline {3.1}DAQ-Assistant}{3}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Programmieren einer eigenen Messstruktur}{4}{subsection.3.2}
-\contentsline {section}{\numberline {4}EIRE: Tag 3}{5}{section.4}
-\contentsline {section}{\numberline {5}EIRE: Tag 4}{6}{section.5}
-\contentsline {section}{\numberline {6}Anhang}{7}{section.6}
+\contentsline {subsection}{\numberline {3.3}Abtastung mit der Messstruktur}{9}{subsection.3.3}
+\contentsline {section}{\numberline {4}EIRE: Tag 4}{10}{section.4}
+\contentsline {section}{\numberline {5}Anhang}{11}{section.5}

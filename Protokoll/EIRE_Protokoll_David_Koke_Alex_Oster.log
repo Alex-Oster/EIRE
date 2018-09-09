@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.22)  8 SEP 2018 18:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.22)  9 SEP 2018 16:19
 entering extended mode
 **./EIRE_Protokoll_David_Koke_Alex_Oster.tex
 (EIRE_Protokoll_David_Koke_Alex_Oster.tex
@@ -2604,6 +2604,14 @@ Package caption Info: wrapfig package is loaded.
 \c@subfigure=\count425
 \c@subtable=\count426
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count427
+\float@exts=\toks37
+\float@box=\box60
+\@float@everytoks=\toks38
+\@floatcapt=\box61
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
 Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
 
@@ -2644,15 +2652,15 @@ Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
 \@linkdim=\dimen196
-\Hy@linkcounter=\count427
-\Hy@pagecounter=\count428
+\Hy@linkcounter=\count428
+\Hy@pagecounter=\count429
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
 File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count429
+\Hy@SavedSpaceFactor=\count430
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -2671,10 +2679,10 @@ Package hyperref Info: Plain pages OFF on input line 4513.
 Package hyperref Info: Backreferencing OFF on input line 4518.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4751.
-\c@Hy@tempcnt=\count430
+\c@Hy@tempcnt=\count431
 LaTeX Info: Redefining \url on input line 5104.
 \XeTeXLinkMargin=\dimen197
-\Fld@menulength=\count431
+\Fld@menulength=\count432
 \Field@Width=\dimen198
 \Fld@charsize=\dimen199
 Package hyperref Info: Hyper figures OFF on input line 6358.
@@ -2686,17 +2694,17 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6383.
 Package hyperref Info: PDF/A mode OFF on input line 6388.
 LaTeX Info: Redefining \ref on input line 6428.
 LaTeX Info: Redefining \pageref on input line 6432.
-\Hy@abspage=\count432
-\c@Item=\count433
-\c@Hfootnote=\count434
+\Hy@abspage=\count433
+\c@Item=\count434
+\c@Hfootnote=\count435
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
 File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
-\Fld@listcount=\count435
-\c@bookmark@seq@number=\count436
+\Fld@listcount=\count436
+\c@bookmark@seq@number=\count437
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
@@ -2719,7 +2727,7 @@ LaTeX Info: Redefining \Cpagerefrange on input line 2230.
 LaTeX Info: Redefining \labelcref on input line 2230.
 LaTeX Info: Redefining \labelcpageref on input line 2230.
 )
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 93.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 94.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -2740,7 +2748,7 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 12.0pt
 (typearea)              \footskip       = 62.9806pt
 (typearea)              \baselineskip   = 17.99446pt
-(typearea)              on input line 93.
+(typearea)              on input line 94.
 Package csquotes Info: Allocating character ".
 )
 (tex/02_EigeneBefehle.tex) (tex/03_Variablen.tex)
@@ -2829,17 +2837,17 @@ Package csquotes Info: Redefining character " on input line 36.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count437
+\scratchcounter=\count438
 \scratchdimen=\dimen256
-\scratchbox=\box60
-\nofMPsegments=\count438
-\nofMParguments=\count439
-\everyMPshowfont=\toks37
-\MPscratchCnt=\count440
+\scratchbox=\box62
+\nofMPsegments=\count439
+\nofMParguments=\count440
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count441
 \MPscratchDim=\dimen257
-\MPnumerator=\count441
-\makeMPintoPDFobject=\count442
-\everyMPtoPDFconversion=\toks38
+\MPnumerator=\count442
+\makeMPintoPDFobject=\count443
+\everyMPtoPDFconversion=\toks40
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -2877,9 +2885,10 @@ d.
 Package biblatex Info: Reference section=0 on input line 36.
 Package biblatex Info: Reference segment=0 on input line 36.
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box61
+\AtBeginShipoutBox=\box63
 Package hyperref Info: Link coloring OFF on input line 36.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
@@ -2888,7 +2897,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count443
+\c@section@level=\count444
 )
 LaTeX Info: Redefining \ref on input line 36.
 LaTeX Info: Redefining \pageref on input line 36.
@@ -2899,7 +2908,7 @@ LaTeX Info: Redefining \nameref on input line 36.
 \@outlinefile=\write5
 \openout5 = `EIRE_Protokoll_David_Koke_Alex_Oster.out'.
 
-\c__siunitx_mathsf_int=\count444
+\c__siunitx_mathsf_int=\count445
 LaTeX Font Info:    Try loading font information for OT1+lmr on input line 36.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
@@ -2954,7 +2963,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-\c__siunitx_mathtt_int=\count445
+\c__siunitx_mathtt_int=\count446
 LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 36.
 
 
@@ -3057,20 +3066,16 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 8.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 8.
-<pic/daq.png, id=66, 437.635pt x 274.02374pt>
+<pic/daq.png, id=61, 437.635pt x 274.02374pt>
 File: pic/daq.png Graphic file (type png)
 <use pic/daq.png>
 Package pdftex.def Info: pic/daq.png  used on input line 13.
 (pdftex.def)             Requested size: 448.13095pt x 280.60019pt.
-<pic/daq_sig.png, id=68, 773.89125pt x 472.76625pt>
+<pic/daq_sig.png, id=63, 773.89125pt x 472.76625pt>
 File: pic/daq_sig.png Graphic file (type png)
 <use pic/daq_sig.png>
 Package pdftex.def Info: pic/daq_sig.png  used on input line 20.
 (pdftex.def)             Requested size: 448.13095pt x 273.76457pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 Package cleveref Info: loaded `ngerman' language definitions on input line 26.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 26.
@@ -3080,7 +3085,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 26.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 26.
-[3
+ [3
 
  <./pic/daq.png (PNG copy)>]
 Package babel Info: Redefining ngerman shorthand "|
@@ -3088,22 +3093,64 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 27.
 )
-Package cleveref Info: loaded `ngerman' language definitions on input line 79.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 79.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 79.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 79.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 79.
- [4 <./pic/daq_sig.png (PNG copy)>]
 (tex/13_Tag3.tex
+<pic/messstruktur1.png, id=73, 536.75531pt x 787.44188pt>
+File: pic/messstruktur1.png Graphic file (type png)
+<use pic/messstruktur1.png>
+Package pdftex.def Info: pic/messstruktur1.png  used on input line 14.
+(pdftex.def)             Requested size: 448.13095pt x 657.42152pt.
+Package cleveref Info: loaded `ngerman' language definitions on input line 16.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1.
+(babel)             in language  on input line 16.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1.
-)
+(babel)             in language  on input line 16.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 16.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 16.
+ [4 <./pic/daq_sig.png (PNG copy)>]
+Overfull \vbox (69.59877pt too high) has occurred while \output is active []
+
+Package cleveref Info: loaded `ngerman' language definitions on input line 16.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 16.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 16.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 16.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 16.
+
+[5 <./pic/messstruktur1.png>]
+<pic/messstruktur2.png, id=87, 536.0025pt x 507.39563pt>
+File: pic/messstruktur2.png Graphic file (type png)
+<use pic/messstruktur2.png>
+Package pdftex.def Info: pic/messstruktur2.png  used on input line 19.
+(pdftex.def)             Requested size: 448.13095pt x 424.21193pt.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 34.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 34.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 34.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 34.
+ [6 <./pic/messstruktur2.png>]
+<pic/messstruktur_case.png, id=94, 448.67625pt x 396.48125pt>
+File: pic/messstruktur_case.png Graphic file (type png)
+<use pic/messstruktur_case.png>
+Package pdftex.def Info: pic/messstruktur_case.png  used on input line 57.
+(pdftex.def)             Requested size: 224.06548pt x 197.99814pt.
+Package cleveref Info: loaded `ngerman' language definitions on input line 61.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 61.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 61.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 61.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 61.
+ [7]
 Package cleveref Info: loaded `ngerman' language definitions on input line 83.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 83.
@@ -3113,78 +3160,102 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 83.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 83.
- [5
-
-] (tex/14_Tag4.tex
+ [8 <./pic/messstruktur_case.png (PNG copy)>]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 86.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 86.
+)
+Package cleveref Info: loaded `ngerman' language definitions on input line 82.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 82.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 82.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 82.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 82.
+ [9] (tex/14_Tag4.tex
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
 )
-Package cleveref Info: loaded `ngerman' language definitions on input line 98.
+Package cleveref Info: loaded `ngerman' language definitions on input line 97.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 97.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 97.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 97.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 98.
- [6
+(babel)             in language  on input line 97.
+ [10
 
 ]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 97.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 97.
  (tex/20_Anhang.tex)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 106.
-Package cleveref Info: loaded `ngerman' language definitions on input line 106.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 105.
+Package cleveref Info: loaded `ngerman' language definitions on input line 105.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 106.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 106.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 106.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 106.
- [7
+(babel)             in language  on input line 105.
+
+[11
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 106.
-
-(EIRE_Protokoll_David_Koke_Alex_Oster.aux
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 105.
+ (EIRE_Protokoll_David_Koke_Alex_Oster.aux
 Package cleveref Info: loaded `ngerman' language definitions on input line 26.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 106.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 106.
-Package rerunfilecheck Info: File `EIRE_Protokoll_David_Koke_Alex_Oster.out' ha
-s not changed.
-(rerunfilecheck)             Checksum: C4B0E323B889FC033FC6DB53619F911F;1124.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 105.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 105.
+
+
+Package rerunfilecheck Warning: File `EIRE_Protokoll_David_Koke_Alex_Oster.out'
+ has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `EIRE_Protokoll_David_Koke_Alex_Oste
+r.out':
+(rerunfilecheck)             Before: 14F61A8B144926BD29BD21C969CA72FF;1019
+(rerunfilecheck)             After:  8CE9A72AA5703FA73501CE7231C2C8B1;1236.
 Package logreq Info: Writing requests to 'EIRE_Protokoll_David_Koke_Alex_Oster.
 run.xml'.
 \openout1 = `EIRE_Protokoll_David_Koke_Alex_Oster.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42080 strings out of 493307
- 808375 string characters out of 3138825
- 1379070 words of memory out of 3000000
- 45041 multiletter control sequences out of 15000+200000
- 589504 words of font info for 82 fonts, out of 3000000 for 9000
+ 42192 strings out of 493307
+ 810032 string characters out of 3138825
+ 1382632 words of memory out of 3000000
+ 45103 multiletter control sequences out of 15000+200000
+ 591233 words of font info for 101 fonts, out of 3000000 for 9000
  1145 hyphenation exceptions out of 8191
- 68i,19n,106p,10428b,2234s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/lm/lmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/l
-mr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/lm/lmro12.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on EIRE_Protokoll_David_Koke_Alex_Oster.pdf (9 pages, 223796 byt
-es).
+ 68i,20n,106p,10428b,2234s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/M
+iKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
+nc/dvips/lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmro12.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb>
+Output written on EIRE_Protokoll_David_Koke_Alex_Oster.pdf (13 pages, 295101 by
+tes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 21 named destinations out of 1000 (max. 500000)
- 23115 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 161 PDF objects out of 1000 (max. 8388607)
+ 29 named destinations out of 1000 (max. 500000)
+ 23122 words of extra memory for PDF output out of 24883 (max. 10000000)
 
