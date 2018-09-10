@@ -1,14 +1,14 @@
 
-		% Beobachten des Leakage-Effektes
-		% nutzen der "Fenster"-Funktionen um Leakage-Effekt zu verminder (Signalverfälschung mit Hann-Fenster)
+	
 		% Schreiben einer Labview VI, die Amplitudenmodulation mit Hilfe der Sinus VI durchführt
 		% falsche Verkabelung für Ausgabe des Signals über Soundkarte (Fehler zunächst nicht erkannt)
-		% -> Verwendung des Funktionsgenerators für Modulation
+			% -> Verwendung des Funktionsgenerators für Modulation
 		% Messstruktur um Demodulation für AM erweitern
 		
 		Zu Beginn des dritten Tages wurde die Arbeit an der Messstruktur fortgesetzt.
 		Abb. \ref{fig:messstruktur} stellt das Endprodukt für diesen Aufgabenteil dar.
-		
+		\newpage
+		\thispagestyle{empty}
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\textwidth]{pic/messstruktur1.png}	
@@ -17,11 +17,11 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\textwidth]{pic/messstruktur2.png}	
-			\caption{text}
+			\caption{Labview VI zur Messung, Spektralanalyse und Speicherung eines eingehenden Signals.}
 			\label{fig:messstruktur}
 		\end{figure}
 		
-		\thispagestyle{plain}
+		\thispagestyle{empty}
 		Ähnlich zu dem DAQ-Assistant sind hier die Eingänge für Anzahl der Datenpunkte und Messrate vertreten.
 		Die VIs, welche die Funktionen des DAQ-Assistants ersetzen sollen sind die DAQmx-VIs, welche in Reihe geschaltet werden.
 		Als Eingang in das erste DAQmx-VI wir der Kanal übergeben von dem das Signal empfangen werden soll, welcher hier "physical channel" heißt.
@@ -55,7 +55,7 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.5\textwidth]{pic/messstruktur_case.png}	
-			\caption{text}
+			\caption{Case der Messstruktur VI für den Fall, dass nicht gespeichert werden soll.}
 			\label{fig:messstruktur_case}
 		\end{figure}
 	
@@ -85,4 +85,123 @@
 		
 	\subsection{Abtastung mit der Messstruktur}
 	
+		Mit der vorerst fertigen Messstruktur sollte nun abgetastet werden.
+		Die Abbildungen \ref{fig:abtast_1kHz} bis \ref{fig:abtast_250,5Hz} stellen verschiedene Fälle dar.
+		Der Verlauf in Abb. \ref{fig:abtast_1kHz} stellt den Fall der Unterabtastung dar.
+		Hierbei entspricht die Frequenz der Messung mit der Signalfrequenz des Funktionsgenerator überein.
+		Um das Abtasttheorem zu erfüllen, müsste jedoch mit mindestens der doppelten Frequenz abgetastet werden, weswegen hierbei keine Schwingung sondern nur ein annähernd linearer Verlauf im Zeitbild zu erkennen ist.
+		Im Falle einer Messung mit exakt gleicher Frequenz wäre jedoch ein konstanter Verlauf zu erwarten, dies schließt auf einen Unterschied zwischen der Frequenz des Funktionsgenerators und der Messrate, obwohl beide auf den selben Wert eingestellt waren.
 		
+		Abb. \ref{fig:abtast_5Hz} verdeutlicht die Ungenauigkeit bei der Messung weiter.
+		Hier war der Funktionsgenerator auf \SI{5}{\hertz} eingestellt, gemessen wurde jedoch ein breites Spektrum an Frequenzen, bei denen die am stärksten vorkommenden Frequenzen zwischen \SIrange{5}{6}{\hertz} liegen.
+		
+		Insbesondere die Darstellung im Frequenzbild von Signalen mit nicht ganzzahligen Frequenzen stellt bei vorliegender Messtechnik ein Problem dar.
+		Vergleicht man die Abbildungen \ref{fig:abtast_250Hz} und \ref{fig:abtast_250,5Hz}, so ist bereits im Zeitbild zu erkennen, dass im nicht ganzzahligen Fall, bei einer Frequenz, die lediglich \SI{0,5}{\hertz} über der anderen liegt ein deutlich anderes Bild zu sehen ist, obwohl es sich bei beiden um einfache Sinusschwingungen mit jeweils nur eine Frequenz handeln sollte.
+		Aufgrund der groß gewählten Frequenzen ist die Sinusform in Abb. \ref{fig:abtast_250Hz} kaum zu erkennen, jedoch lässt sich anhand der Amplituden ein Muster erkennen, welches einem einfachen Sinus deutlich mehr ähnelt als das in Abb. \ref{fig:abtast_250,5Hz}.
+		
+		Betrachtet man nun die Frequenzbilder, so fällt zunächst im Fall ohne Hann-Fenster auf, dass bei dem \SI{250}{\hertz}-Signal eine Frequenz noch recht deutlich heraus sticht.
+		Bei dem \SI{250,5}{\hertz}-Signal weitet sich dieser Frequenzpeak jedoch auf und die Frequenz des Signals lässt sich somit deutlich schlechter erfassen.
+		Dies nennt man Leakage-Effekt.
+		Um dieses "Ausschmieren" zu verhindern, kann das Signal mit Hilfe einer sogenannten Fensterfunktion manipuliert werden.
+		In den Abbildungen werden hier Hann-Fenster verwendet.
+		Vergleicht man die Frequenzbilder mit Hann-Fenster in den Abbildungen \ref{fig:abtast_250Hz} und \ref{fig:abtast_250,5Hz} so fällt auf, dass der Leakage-Effekt deutlich geschwächt auftritt, dafür aber verstärktes Rauschen in den umliegenden Frequenzbereichen zu erkennen ist.
+		Dieses Rauschen jedoch liegt weit unter dem gewünschten Frequenzpeak bei ca. \SI{-80}{\decibel} und ist demnach zu vernachlässigen.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.85\textwidth]{pic/abtast_1kHz.png}	
+			\caption{Frontpanel der Messstruktur bei eingehendem Sinussignal mit Frequenz \SI{1}{\kilo\hertz} und voreingestellten Parametern für Messrate etc.}
+			\label{fig:abtast_1kHz}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.85\textwidth]{pic/abtast_5Hz.png}	
+			\caption{Frontpanel der Messstruktur bei eingehendem Sinussignal mit Frequenz \SI{5}{\hertz} und voreingestellten Parametern für Messrate etc.}
+			\label{fig:abtast_5Hz}
+		\end{figure}
+			
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.85\textwidth]{pic/abtast_250Hz.png}	
+			\caption{Frontpanel der Messstruktur bei eingehendem Sinussignal mit Frequenz \SI{250}{\hertz} und voreingestellten Parametern für Messrate etc.}
+			\label{fig:abtast_250Hz}
+		\end{figure}
+	
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.85\textwidth]{pic/abtast_250,5Hz.png}	
+			\caption{Frontpanel der Messstruktur bei eingehendem Sinussignal mit Frequenz \SI{250,5}{\hertz} und voreingestellten Parametern für Messrate etc.}
+			\label{fig:abtast_250,5Hz}
+		\end{figure}
+
+\newpage
+\section{Modulation}
+	
+	Als nächstes sollte der Funktionsgenerator durch die computereigene Soundkarte ersetzt werden.
+	Um einen Schritt weiter zu gehen, sollte das Signal, welches der Soundkarte über ein Labview VI übergeben wird, amplitudenmoduliert sein.
+	
+	\subsection{Amplitudenmodulation}
+	
+		Das VI, welches ein amplitudenmoduliertes Signal erzeugt und von der Soundkarte ausgeben lässt ist in Abb. \ref{fig:am} dargestellt.
+		Die VIs, welche für die Soundkartenausgabe zuständig sind, sind mit einem Lautsprechersymbol gekennzeichnet. 
+		Wie auch bei der Messtruktur verläuft von dem ersten dieser VIs eine Fehlerleitung, damit eine Fehlermeldung ausgegeben werden kann, falls in dem Programm ein Fehler auftritt.
+		Da auch hier ein kontinuierliches Signal gesendet werden soll, wird der Modus "Continuous Samples" für die Ausgabe festgelegt.
+		Bei den drei Konstanten welche neben dem Modus in das Sound-VI gegeben werden handelt es sich um Frequenz, Anzahl der Kanäle und Bits.
+		Mit den gewählten Werten von \SI{44100}{\hertz}, einem Kanal und 16 Bits wird der Ton im Mono-Format und mit CD-Qualität ausgegeben, welche die eingebaute Soundkarte unterstützt.
+		Das Sound-VI nach der Übergabe der Parameter startet die Ausgabe und von dort wird die Schleife betreten, in der das Signal entsteht.
+		Zu erkennen sind bereits Controls für das zu modulierende Signal, wie auch für den Träger.
+		Hierzu liegt dem Aufbau folgende Formel zu Grunde:
+		\begin{align}
+			\label{eq:AM1} S_\text{AM}(t) &= (m \cdot S(t) + 1) \cdot T(t) \\
+			\label{eq:AM2} \text{mit dem Signal} \quad S(t) &= A_1 \cdot \sin{(2\pi f_1 t)} + A_2 \cdot \sin{(2\pi f_2 t)}\\
+			\label{eq:AM3} \text{und dem Träger} \quad T(t) &= s_\text{T} \cdot \sin{(2\pi f_\text{T} t)}
+		\end{align} 
+		Aufgrund der Beschränkung der Soundkarte auf Signale mit maximaler Amplitude von einem Volt, wird der Modulationsgrad $m$ variabel gehalten, aber $s_\text{T}$ auf $\frac{1}{mA_1 + mA_2 + 1}$ normiert. 
+		$A_{1/2}$ sind dabei die Amplituden der beiden Sinusschwingungen aus denen das zu modulierende Signal besteht und $f_{1/2}$ die jeweiligen Frequenzen, analog $f_\text{T}$ die Frequenz für den Träger.
+		
+		\newpage
+		\thispagestyle{empty}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.95\textwidth]{pic/am1.png}
+		\end{figure} 
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.95\textwidth]{pic/am2.png}
+			\caption{Labview VI zur Erstellung eines amplitudenmodulierten Signals, welches von der Soundkarte ausgegeben und auf dem Frontpanel einstellbar und graphisch dargestellt wird.}
+			\label{fig:am}	
+		\end{figure} 
+		
+		\thispagestyle{empty}
+		Das Signal $S(t)$ wird wie in Abb. \ref{fig:am} zu erkennen durch zwei der zuvor geschriebenen Sinus VIs verwirklicht.
+		Zur besseren Aufnahme werden an dieser Stelle genau so viele Datenpunkte gewählt wie auch für die Sound VIs. 
+		Analog zu der Frequenz hier 44100 Datenpunkte.
+		Wie in der obigen Formel zu erkennen, werden die Phasen der Signale vernachlässigt und einfach gleich null gesetzt.
+		Die eigentliche Modulation, also der Übergang von $S(t)$ zu $S_\text{AM}(t)$ findet in der Case-Struktur statt.
+		Bei der Abbildung handelt es sich um das Endprodukt mit zudem eingebauter Frequenz- und Phasenmodulation zwischen denen hier unterschieden werden kann.
+		Auf die anderen Cases wird später eingegangen, da diese erst im Nachhinein in das Modulations-VI hinzugefügt wurden.
+		Zurück zu dem AM-Case: Hier sind die Rechnungen aus den Gleichungen \ref{eq:AM1} und \ref{eq:AM3} mit normierter Amplitude nachgestellt.
+		Das Sinus-VI in dem Case stellt hierbei das Trägersignal dar, welches ebenfalls die Zahl der Datenpunkte von 44100 und Phase null besitzt.
+		Zur Darstellung des modulierten Signals sind zudem ein Waveform-Builder und zwei damit verbundene Graphen hinzugefügt worden, damit man dieses im Zeit- und Frequenzbild auf dem Frontpanel betrachten kann.
+		Natürlich verläuft das Signal nicht nur in den Waveform-Builder sondern auch in das Sound-VI, welches für die Ausgabe des eingehenden Signals über die Soundkarte führt.
+		An dieser Stelle jedoch wurde der Ausgang zunächst falsch verkabelt, weswegen nicht das modulierte Signal ausgegeben wurde.
+		Dieses Problem wurde erst am vierten und letzten Tag bei Erweiterung von Frequenz- und Phasenmodulation behoben.
+		
+		Wie auch bei der Messstruktur wird der Vorgang solange wiederholt bis der Stopp-Knopf auf dem Frontpanel gedrückt wird.  
+		In Abbildung \ref{fig:am_example} ist dieses Frontpanel für ein Beispielsignal dargestellt.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.95\textwidth]{pic/am_example.png}
+			\caption{Frontpanel des Modulation-VIs bei AM mit Beispielsignal und einstellbaren Parametern.}
+			\label{fig:am_example}	
+		\end{figure} 
+		
+		Zu erkennen sind hier im Frequenzbild die Trägerfrequenz und die von der Amplitudenmodulation üblichen Seitenbänder links und rechts von der Trägerfrequenz pro Frequenz die im zu modulierenden Signal auftritt, sowie auch der schwebungsähnliche Verlauf im Zeitbild.
+		Im Anhang (Abschnitt \ref*{sec:anhang}) sind weitere Beispiele verzeichnet.
+		
+	\subsection{Erweiterung der Messstruktur}
+		
+		Damit das nun modulierte Signal auch wieder demoduliert werden kann, musste die Messstruktur erweitert werden
