@@ -1,10 +1,11 @@
 
 	
-		% Schreiben einer Labview VI, die Amplitudenmodulation mit Hilfe der Sinus VI durchführt
+		% Schreiben einer LabVIEW VI, die Amplitudenmodulation mit Hilfe der Sinus VI durchführt
 		% falsche Verkabelung für Ausgabe des Signals über Soundkarte (Fehler zunächst nicht erkannt)
 			% -> Verwendung des Funktionsgenerators für Modulation
 		% Messstruktur um Demodulation für AM erweitern
 		
+
 		Zu Beginn des dritten Tages wurde die Arbeit an der Messstruktur fortgesetzt.
 		Abb. \ref{fig:messstruktur} stellt das Endprodukt für diesen Aufgabenteil dar.
 		\newpage
@@ -17,7 +18,7 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\textwidth]{pic/messstruktur2.png}	
-			\caption{Labview VI zur Messung, Spektralanalyse und Speicherung eines eingehenden Signals.}
+			\caption{LabVIEW VI zur Messung, Spektralanalyse und Speicherung eines eingehenden Signals.}
 			\label{fig:messstruktur}
 		\end{figure}
 		
@@ -31,23 +32,31 @@
 		Die Benennung dieser mit "minimum value" und "maximum value" entstammt der voreingestellten Namen der Eingänge des DAQmx-VIs.
 		In einer späteren Version wurden die englischen Namen durch deutsche ersetzt.
 		Von den Ausgängen dieses VIs gehen nur der Signalkanal und ein Fehlerkanal durch, welche sich von hier aus bis ans Ende der Messstruktur durch alle DAQmx-VIs ziehen.
+			
+		\
 		
 		Das zweite DAQmx-VI dient als Taktgeber für die Aufnahme des Signals, deswegen der Modus "Sample Clock".
 		Ihm werden einerseits der Signalkanal und der Fehler übergeben, andererseits auch die Messrate "rate" und die doppelte Anzahl der Datenpunkte "samples per channel", damit der CPU weniger ausgelastet wird. 
 		Mit dem letzten und konstanten Eingang "Continuous Samples" wird festgelegt, wie die Daten aufgenommen werden.
 		Da der Funktionsgenerator kontinuierlich ein Signal ausgibt, soll auch so lange getaktet werden, bis der Nutzer das Programm beendet.
+			
+		\
 		
 		Das nächste DAQmx-VI ist nur für den Start des Messvorgangs zuständig.
-		Von dort aus geht es in eine while-Schleife mit Stopp-Knopf, damit das Programm jederzeit von dem Benutzer beendet werden kann, ohne dass ein Stopp von Labview erzwungen werden muss.
+		Von dort aus geht es in eine while-Schleife mit Stopp-Knopf, damit das Programm jederzeit von dem Benutzer beendet werden kann, ohne dass ein Stopp von LabVIEW erzwungen werden muss.
 		In dieser while-Schleife ist das erste Element ein weiteres DAQmx-VI.
 		Dieses ist für das Lesen des Signals mit den vorgegebenen Parametern des Taktgebers verantwortlich.
 		Es gibt ein dynamisches Array der Messdaten aus, welches mit Hilfe eines Waveform-Graphen auf der Frontplatte dargestellt werden kann.  
 		Des Weiteren wird die Ausgabe für eine Spektralanalyse über zwei verschiedene Express-VIs genutzt. 
 		Dabei wird bei einem mit dem sogenannten Hann-Fenster gearbeitet und bei dem anderen ohne.
 		Das Hann-Fenster dient zur Manipulation der Messdaten, um die vorkommenden nicht ganzzahligen Frequenzen schärfer im Frequenzbild darzustellen, um den Leakage-Effekt zu unterdrücken, auf den später noch genauer eingegangen wird.
+			
+		\
 		
 		Neben den Daten verläuft auch das Fehlerkabel durch die Express-VIs. 
 		Falls ein Fehler in dem Programm auftritt dann wird aufgrund des VIs mit der Sprechblase eine Fehlermeldung ausgegeben und der Nutzer wird gefragt, ob das Programm weiterlaufen oder gestoppt werden soll.
+			
+		\
 		
 		Um die ermittelten Daten für das Zeitbild und das Frequenzbild zu speichern wird die Case-Struktur nach der Spektralanalyse eingebaut.
 		Wird auf den Speicherknopf auf dem Frontpanel gedrückt, so wird der in Abb. \ref{fig:messstruktur} dargestellte Fall durchgeführt.
@@ -79,6 +88,8 @@
 			\label{tab:speichern}
 		\end{table}
 		Eine automatische Benennung der Spalten ist hierbei nicht möglich, weswegen verfolgt werden muss welcher Wert an welcher Stelle in das Array eingefügt wird.
+			
+		\
 		
 		Danach wird die Schleife wiederholt bis sie durch Betätigen des Stopp-Knopfes verlassen wird.
 		Nach zwei weiteren DAQmx-VIs wird das Programm dann beendet.
@@ -91,13 +102,19 @@
 		Hierbei entspricht die Frequenz der Messung mit der Signalfrequenz des Funktionsgenerator überein.
 		Um das Abtasttheorem zu erfüllen, müsste jedoch mit mindestens der doppelten Frequenz abgetastet werden, weswegen hierbei keine Schwingung sondern nur ein annähernd linearer Verlauf im Zeitbild zu erkennen ist.
 		Im Falle einer Messung mit exakt gleicher Frequenz wäre jedoch ein konstanter Verlauf zu erwarten, dies schließt auf einen Unterschied zwischen der Frequenz des Funktionsgenerators und der Messrate, obwohl beide auf den selben Wert eingestellt waren.
+			
+		\
 		
 		Abb. \ref{fig:abtast_5Hz} verdeutlicht die Ungenauigkeit bei der Messung weiter.
 		Hier war der Funktionsgenerator auf \SI{5}{\hertz} eingestellt, gemessen wurde jedoch ein breites Spektrum an Frequenzen, bei denen die am stärksten vorkommenden Frequenzen zwischen \SIrange{5}{6}{\hertz} liegen.
+			
+		\
 		
 		Insbesondere die Darstellung im Frequenzbild von Signalen mit nicht ganzzahligen Frequenzen stellt bei vorliegender Messtechnik ein Problem dar.
 		Vergleicht man die Abbildungen \ref{fig:abtast_250Hz} und \ref{fig:abtast_250,5Hz}, so ist bereits im Zeitbild zu erkennen, dass im nicht ganzzahligen Fall, bei einer Frequenz, die lediglich \SI{0,5}{\hertz} über der anderen liegt ein deutlich anderes Bild zu sehen ist, obwohl es sich bei beiden um einfache Sinusschwingungen mit jeweils nur eine Frequenz handeln sollte.
 		Aufgrund der groß gewählten Frequenzen ist die Sinusform in Abb. \ref{fig:abtast_250Hz} kaum zu erkennen, jedoch lässt sich anhand der Amplituden ein Muster erkennen, welches einem einfachen Sinus deutlich mehr ähnelt als das in Abb. \ref{fig:abtast_250,5Hz}.
+			
+		\
 		
 		Betrachtet man nun die Frequenzbilder, so fällt zunächst im Fall ohne Hann-Fenster auf, dass bei dem \SI{250}{\hertz}-Signal eine Frequenz noch recht deutlich heraus sticht.
 		Bei dem \SI{250,5}{\hertz}-Signal weitet sich dieser Frequenzpeak jedoch auf und die Frequenz des Signals lässt sich somit deutlich schlechter erfassen.
@@ -139,7 +156,7 @@
 \section{Modulation}
 	
 	Als nächstes sollte der Funktionsgenerator durch die computereigene Soundkarte ersetzt werden.
-	Um einen Schritt weiter zu gehen, sollte das Signal, welches der Soundkarte über ein Labview VI übergeben wird, amplitudenmoduliert sein.
+	Um einen Schritt weiter zu gehen, sollte das Signal, welches der Soundkarte über ein LabVIEW VI übergeben wird, amplitudenmoduliert sein.
 	
 	\subsection{Amplitudenmodulation}
 	
@@ -170,7 +187,7 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.95\textwidth]{pic/am2.png}
-			\caption{Labview VI zur Erstellung eines amplitudenmodulierten Signals, welches von der Soundkarte ausgegeben und auf dem Frontpanel einstellbar und graphisch dargestellt wird.}
+			\caption{LabVIEW VI zur Erstellung eines amplitudenmodulierten Signals, welches von der Soundkarte ausgegeben und auf dem Frontpanel einstellbar und graphisch dargestellt wird.}
 			\label{fig:am}	
 		\end{figure} 
 		
@@ -182,12 +199,17 @@
 		Die eigentliche Modulation, also der Übergang von $S(t)$ zu $S_\text{AM}(t)$ findet in der Case-Struktur statt.
 		Bei der Abbildung handelt es sich um das Endprodukt mit zudem eingebauter Frequenz- und Phasenmodulation zwischen denen hier unterschieden werden kann.
 		Auf die anderen Cases wird später eingegangen, da diese erst im Nachhinein in das Modulations-VI hinzugefügt wurden.
+			
+		\
+		
 		Zurück zu dem AM-Case: Hier sind die Rechnungen aus den Gleichungen \ref{eq:AM1} und \ref{eq:AM3} mit normierter Amplitude nachgestellt.
 		Das Sinus-VI in dem Case stellt hierbei das Trägersignal dar, welches ebenfalls die Zahl der Datenpunkte von 44100 und Phase null besitzt.
 		Zur Darstellung des modulierten Signals sind zudem ein Waveform-Builder und zwei damit verbundene Graphen hinzugefügt worden, damit man dieses im Zeit- und Frequenzbild auf dem Frontpanel betrachten kann.
 		Natürlich verläuft das Signal nicht nur in den Waveform-Builder sondern auch in das Sound-VI, welches für die Ausgabe des eingehenden Signals über die Soundkarte führt.
 		An dieser Stelle jedoch wurde der Ausgang zunächst falsch verkabelt, weswegen nicht das modulierte Signal ausgegeben wurde.
 		Dieses Problem wurde erst am vierten und letzten Tag bei Erweiterung von Frequenz- und Phasenmodulation behoben.
+			
+		\
 		
 		Wie auch bei der Messstruktur wird der Vorgang solange wiederholt bis der Stopp-Knopf auf dem Frontpanel gedrückt wird.  
 		In Abbildung \ref{fig:am_example} ist dieses Frontpanel für ein Beispielsignal dargestellt.
@@ -207,6 +229,8 @@
 		Damit das nun modulierte Signal auch wieder demoduliert werden kann, musste die Messstruktur erweitert werden.
 		Für die Amplitudenmodulation wurden hier drei verschiedene Arten der Demodulation integriert, von denen eine ausgewählt werden kann.
 		Die Erweiterung von Abb. \ref{fig:messstruktur} ist in Abb. \ref{fig:messstruktur_dam} dargestellt.
+			
+		\
 		
 		Bei den verschiedenen Demodulationsverfahren handelt es sich um die Quadratur, die Betragsbildung und die Multiplikation mit dem Träger, welche jedoch erst im Nachhinein am Morgen des vierten Tages hinzugefügt wurde.
 		Um auch hier zu unterscheiden wurde eine Case-Struktur angelegt, bei der auch "keine Demodulation" eine Option ist.
@@ -215,6 +239,8 @@
 		Analog dazu wird bei der Betragsbildung einfach ein VI für den Betrag eingeschoben und bei keiner Demodulation die Kabel ohne weiteres durch den Case gezogen (vgl. Abb. \ref{fig:messstruktur_dam_case}). 
 		Da nach den Rechenoperationen auch noch Frequenzen im Bereich doppelter Trägerfrequenz auftauchen, müssen diese gefiltert werden.
 		Dies lässt sich leicht mit einem Tiefpass verwirklichen, solange das Verhältnis zwischen Trägerfrequenz und der des Ursprungssignals $f_\text{T} >> f_{1/2}$ gilt.
+			
+		\
 		
 		Vor und nach dem Tiefpass wurden weitere Graphen für Zeit- und Frequenzbild eingefügt, um die einzelnen Schritte der Signalverarbeitung auch visuell auf dem Frontpanel darzustellen.
 		Ansonsten ist das VI im wesentlichen das gleiche wie in Abb. \ref{fig:messstruktur}, nur die Speicherfunktion wurde noch um die zwei weiteren Datensätze nach Demodulation und nach Tiefpass erweitert.
@@ -257,7 +283,7 @@
 			\label{fig:messstruktur_dam_case}	
 		\end{figure}
 	
-		Wie bereits zuvor erwähnt war das Ende der Modulations-VI zunächst falsch verkabelt.
+		Wie bereits zuvor erwähnt, war das Ende der Modulations-VI zunächst falsch verkabelt.
 		Die Darstellungen für das Frontpanel der erweiterten Messstruktur wurden deshalb mit Hilfe eines von dem Funktionsgenerator ausgehenden Signals aufgenommen.
 		Diese sind in den Abbildungen \ref{fig:dam_keine} bis \ref{fig:dam_betrag} jeweils einmal pro Demodulationsart aufgefasst.
 		Für alle drei Abbildungen wurde das gleiche Signal von dem Funktionsgenerator verwendet mit Modulationsfrequenz $f_1= \SI{1}{\kilo\hertz}, f_2 = \SI{0}{\hertz}$, Trägerfrequenz $f_\text{T}\SI{1}{\kilo\hertz}$ und Modulationsgrad $m = 0,03$.

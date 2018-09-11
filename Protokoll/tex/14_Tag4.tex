@@ -17,14 +17,18 @@
 	Vollständig verschwindet die Trägerfrequenz so jedoch nicht, da auch Frequenzanteile mit doppelter Trägerfrequenz auftreten.
 	Diese lassen sich aber wie zuvor durch den Tiefpass hinter dem Case filtern.
 	Um sich gleichzeitig auch noch um den Gleichanteil, zu kümmern wird dieser Tiefpass hinter dem Case durch einen Bandpass ersetzt, was in Abb. \ref{fig:messstruktur_dafpm} in der vollständigen Messstruktur zu sehen ist.
+		
+	\
 	
 	Bevor es jedoch zu Vervollständigung der Messstruktur durch Erweiterung der Demodulation von frequenz- und phasenmodulierten Signalen kommt, war die nächste Aufgabe zunächst einmal das Modulations-VI um die beiden fehlenden Arten der Modulation zu erweitern.
 	An dieser Stelle ließ sich dann auch der Fehler in der Verkabelung feststellen und die Soundkarte konnte nun die Position des Funktionsgenerators ersetzen.
 	Dabei wurde der Audio-Ausgang des Rechners mit dem ADC dort verbunden, wo vorher der Funktionsgenerator angeschlossen war.
+		
+	\
 	
 	Die Erweiterung des Modulations-VI um Frequenz- und Phasenmodulation belief sich auf die in Abb. \ref{fig:am} nicht dargestellten Cases.
 	Diese sind in der Abbildung \ref{fig:fmpm} dargestellt.
-	Für diese wurden folgende Formeln herangezogen und in Labview modelliert:
+	Für diese wurden folgende Formeln herangezogen und in LabVIEW modelliert:
 	\begin{align}
 		\label{eq:FM} S_\text{FM}(t) &= \cos{(2\pi[f_\text{T}t + k \cdot \int_{-\infty}^{t}{S(\tau)\dd{\tau}}])} \\
 		\label{eq:PM} S_\text{PM}(t) &= \cos{(2\pi[f_\text{T}t + k \cdot S(t)])}.
@@ -34,6 +38,8 @@
 	Im Wesentlichen unterscheiden sich der Fall der Frequenzmodulation von der Phasenmodulation nur dadurch, dass das zu modulierende Signal vor weiteren Rechenoperationen noch integriert wird.
 	Da die Amplitude für das ausgehende Signal für den Modulationsprozess hier keine große Rolle spielt, solange sie ungleich null ist, wird diese hier auf eins gesetzt.
 	Durch einfache Rechenoperationen wird das Argument des Kosinus aufgestellt und dann in die Funktion gegeben.
+			
+	\
 		
 	Jeweils ein Beispiel des Frontpanels für die beiden neuen Modulationsverfahren ist in Abb. \ref{fig:fm_example} (Frequenzmodulation) bzw. Abb. \ref{fig:pm_example} (Phasenmodulation) dargestellt.
 	Auffällig ist die charakteristische Menge der auftretenden Seitenbänder verglichen mit der Amplitudenmodulation.
@@ -82,10 +88,16 @@
 	Durch ableiten des Signals, wird das zu modulierende Signal ein Teil der Amplitude, weswegen die beiden anderen Modulationstypen mit den gleichen Verfahren demoduliert werden können wie bei der AM.
 	Abbildung \ref{fig:messstruktur_dafpm} stellt das vollständige Messstruktur-VI dar.
 	Dieses unterscheidet sich von der Abbildung \ref{fig:messstruktur_dam} nur in den zwei weiteren Cases, der Erweiterung der Speicherfunktion um die Amplituden in den Zeitbildern nach Demodulation/Tiefpass bzw. Bandpass, welcher den Tiefpass ersetzt um ebenfalls den Gleichanteil zu filtern.
+		
+	\
+	
 	Der erste Case liegt vor der Demodulationsoperation und ist für FM und PM gleich.
 	Hier wird nur das Signal über ein Express-VI abgeleitet und nach der Konvertierung in diesem VI wieder in eine Waveform zurück konvertiert.
 	Im Falle der AM geschieht nichts in dem Case, die Kabel gehen also einfach durch diesen durch.
 	Da nach dem Ableiten bei dem frequenzmodulierten Signal $S_\text{FM}(t)$ das zu modulierende Signal $S(t)$ nun in der Amplitude steht, kann dieses wie ein amplitudenmoduliertes Signal behandelt werden.
+		
+	\
+	
 	In dem zweiten neuen Case geschieht im Falle der AM und FM also nichts, auch hier verlaufen die Kabel direkt durch den Case.
 	Bei einem phasenmodulierten Signal befindet sich jedoch nicht das zu modulierende Signal $S(t)$, sondern dessen Ableitung in der Amplitude, weswegen der zweite Case hier genutzt wird, um das Signal einmal zu integrieren, analog zu der Differentiation in dem ersten Case.
 	Das Frontpanel für ein Beispielsignal ist in Abb. \ref{fig:dpm} dargestellt. 
@@ -104,7 +116,7 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=\textwidth]{pic/messstruktur_dafpm3.png}
-		\caption{Labview VI der vollständigen Messstruktur mit Demodulationsoptionen für AM, FM und PM, sowie Speicherfunktion.}
+		\caption{LabVIEW VI der vollständigen Messstruktur mit Demodulationsoptionen für AM, FM und PM, sowie Speicherfunktion.}
 		\label{fig:messstruktur_dafpm}	
 	\end{figure} 
 	
