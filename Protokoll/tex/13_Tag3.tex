@@ -155,7 +155,7 @@
 		\begin{align}
 			\label{eq:AM1} S_\text{AM}(t) &= (m \cdot S(t) + 1) \cdot T(t) \\
 			\label{eq:AM2} \text{mit dem Signal} \quad S(t) &= A_1 \cdot \sin{(2\pi f_1 t)} + A_2 \cdot \sin{(2\pi f_2 t)}\\
-			\label{eq:AM3} \text{und dem Träger} \quad T(t) &= s_\text{T} \cdot \sin{(2\pi f_\text{T} t)}
+			\label{eq:AM3} \text{und dem Träger} \quad T(t) &= s_\text{T} \cdot \sin{(2\pi f_\text{T} t)}.
 		\end{align} 
 		Aufgrund der Beschränkung der Soundkarte auf Signale mit maximaler Amplitude von einem Volt, wird der Modulationsgrad $m$ variabel gehalten, aber $s_\text{T}$ auf $\frac{1}{mA_1 + mA_2 + 1}$ normiert. 
 		$A_{1/2}$ sind dabei die Amplituden der beiden Sinusschwingungen aus denen das zu modulierende Signal besteht und $f_{1/2}$ die jeweiligen Frequenzen, analog $f_\text{T}$ die Frequenz für den Träger.
@@ -204,4 +204,116 @@
 		
 	\subsection{Erweiterung der Messstruktur}
 		
-		Damit das nun modulierte Signal auch wieder demoduliert werden kann, musste die Messstruktur erweitert werden
+		Damit das nun modulierte Signal auch wieder demoduliert werden kann, musste die Messstruktur erweitert werden.
+		Für die Amplitudenmodulation wurden hier drei verschiedene Arten der Demodulation integriert, von denen eine ausgewählt werden kann.
+		Die Erweiterung von Abb. \ref{fig:messstruktur} ist in Abb. \ref{fig:messstruktur_dam} dargestellt.
+		
+		Bei den verschiedenen Demodulationsverfahren handelt es sich um die Quadratur, die Betragsbildung und die Multiplikation mit dem Träger, welche jedoch erst im Nachhinein am Morgen des vierten Tages hinzugefügt wurde.
+		Um auch hier zu unterscheiden wurde eine Case-Struktur angelegt, bei der auch "keine Demodulation" eine Option ist.
+		Der Fall der Quadratur ist bereits in Abb. \ref{fig:messstruktur_dam} dargestellt.
+		Das Signal wird dabei einfach quadriert.
+		Analog dazu wird bei der Betragsbildung einfach ein VI für den Betrag eingeschoben und bei keiner Demodulation die Kabel ohne weiteres durch den Case gezogen (vgl. Abb. \ref{fig:messstruktur_dam_case}). 
+		Da nach den Rechenoperationen auch noch Frequenzen im Bereich doppelter Trägerfrequenz auftauchen, müssen diese gefiltert werden.
+		Dies lässt sich leicht mit einem Tiefpass verwirklichen, solange das Verhältnis zwischen Trägerfrequenz und der des Ursprungssignals $f_\text{T} >> f_{1/2}$ gilt.
+		
+		Vor und nach dem Tiefpass wurden weitere Graphen für Zeit- und Frequenzbild eingefügt, um die einzelnen Schritte der Signalverarbeitung auch visuell auf dem Frontpanel darzustellen.
+		Ansonsten ist das VI im wesentlichen das gleiche wie in Abb. \ref{fig:messstruktur}, nur die Speicherfunktion wurde noch um die zwei weiteren Datensätze nach Demodulation und nach Tiefpass erweitert.
+		
+		\newpage
+		\pagestyle{empty}
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{pic/messstruktur_dam1.png}
+		\end{figure} 
+	
+			\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{pic/messstruktur_dam2.png}
+		\end{figure} 
+	
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{pic/messstruktur_dam3.png}
+			\caption{Frontpanel des Modulation-VIs bei AM mit Beispielsignal und einstellbaren Parametern.}
+			\label{fig:messstruktur_dam}	
+		\end{figure} 
+	
+		\pagestyle{headings}
+		
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}[c]{0.45\textwidth}
+				\centering
+				\includegraphics[width=0.3\textwidth]{pic/messstruktur_dam_case1.png}
+				\subcaption{Case für den Fall ohne Demodulation.}
+			\end{subfigure}
+			\begin{subfigure}[c]{0.45\textwidth}
+				\centering
+				\includegraphics[width=0.3\textwidth]{pic/messstruktur_dam_case2.png}
+				\subcaption{Case für den Fall von Demodulation über Betragsbildung.}
+			\end{subfigure}	
+			\caption{Alternative Fälle für den Case für die Demodulationsart in Abb. \ref{fig:messstruktur_dam}.}
+			\label{fig:messstruktur_dam_case}	
+		\end{figure}
+	
+		Wie bereits zuvor erwähnt war das Ende der Modulations-VI zunächst falsch verkabelt.
+		Die Darstellungen für das Frontpanel der erweiterten Messstruktur wurden deshalb mit Hilfe eines von dem Funktionsgenerator ausgehenden Signals aufgenommen.
+		Diese sind in den Abbildungen \ref{fig:dam_keine} bis \ref{fig:dam_betrag} jeweils einmal pro Demodulationsart aufgefasst.
+		Für alle drei Abbildungen wurde das gleiche Signal von dem Funktionsgenerator verwendet mit Modulationsfrequenz $f_1= \SI{1}{\kilo\hertz}, f_2 = \SI{0}{\hertz}$, Trägerfrequenz $f_\text{T}\SI{1}{\kilo\hertz}$ und Modulationsgrad $m = 0,03$.
+		Bei Abb. \ref{fig:dam_keine} entsprichen die Graphen nach der Demodulation selbstverständlich denen des Eingangssignals, da dieses nicht weiter verarbeitet wurde.
+		Der Tiefpass erreicht an dieser Stelle nichts.
+		Bei den Abbildungen \ref{fig:dam_quadrat} und \ref{fig:dam_betrag} hingegen kann man den Frequenzbildern nach der jeweiligen Demodulation entnehmen, dass nur die Frequenz des zu modulierenden Signals $f_1$, die Trägerfrequenz $f_\text{T}$ und das doppelte der Trägerfrequenz mit Seitenbändern vorliegt.
+		An dieser Stelle erfüllt der Tiefpass seinen Zweck und in den Frequenzbildern ist die einzige Frequenz, die nicht in dem Rauschen bei $\leq \SI{-50}{\decibel}$ untergeht gerade die gesuchte Frequenzen des zu modulierenden Signals $f_1$.
+		
+		Weitere Beispiele sind auch für diese im Anhang (Abschnitt \ref{sec:anhang}) vorzufinden.
+		
+		\newpage
+		\pagestyle{empty}
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}[c]{\textwidth}
+				\centering
+				\includegraphics[width=0.7\textwidth]{pic/dam_keine1.png}
+				\subcaption{Linke Seite des Frontpanels mit Parametern und Graphen für das Eingangssignal.}
+			\end{subfigure}
+			\begin{subfigure}[c]{\textwidth}
+				\centering
+				\includegraphics[width=0.9\textwidth]{pic/dam_keine2.png}
+				\subcaption{Rechte Seite des Frontpanels mit Graphen für das demodulierte Signal vor und nach Tiefpass.}
+			\end{subfigure}	
+			\caption{Frontpanel der erweiterten Messstruktur bei eingehendem AM-Signal vom Funktionsgenerator mit Modulationsfrequenz $f_1= \SI{1}{\kilo\hertz}, f_2 = \SI{0}{\hertz}$, Trägerfrequenz $f_\text{T}\SI{1}{\kilo\hertz}$ und Modulationsgrad $m = 0,03$ ohne Demodulation.}
+			\label{fig:dam_keine}	
+		\end{figure} 
+	
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}[c]{\textwidth}
+				\centering
+				\includegraphics[width=0.7\textwidth]{pic/dam_quadrat1.png}
+				\subcaption{Linke Seite des Frontpanels mit Parametern und Graphen für das Eingangssignal.}
+			\end{subfigure}
+			\begin{subfigure}[c]{\textwidth}
+				\centering
+				\includegraphics[width=0.9\textwidth]{pic/dam_quadrat2.png}
+				\subcaption{Rechte Seite des Frontpanels mit Graphen für das demodulierte Signal vor und nach Tiefpass.}
+			\end{subfigure}	
+			\caption{Frontpanel der erweiterten Messstruktur bei eingehendem AM-Signal vom Funktionsgenerator mit Modulationsfrequenz $f_1= \SI{1}{\kilo\hertz}, f_2 = \SI{0}{\hertz}$, Trägerfrequenz $f_\text{T}\SI{1}{\kilo\hertz}$ und Modulationsgrad $m = 0,03$ ohne Demodulation.}
+			\label{fig:dam_quadrat}	
+		\end{figure} 
+	
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}[c]{\textwidth}
+				\centering
+				\includegraphics[width=0.7\textwidth]{pic/dam_betrag1.png}
+				\subcaption{Linke Seite des Frontpanels mit Parametern und Graphen für das Eingangssignal.}
+			\end{subfigure}
+			\begin{subfigure}[c]{\textwidth}
+				\centering
+				\includegraphics[width=0.9\textwidth]{pic/dam_betrag2.png}
+				\subcaption{Rechte Seite des Frontpanels mit Graphen für das demodulierte Signal vor und nach Tiefpass.}
+			\end{subfigure}	
+			\caption{Frontpanel der erweiterten Messstruktur bei eingehendem AM-Signal vom Funktionsgenerator mit Modulationsfrequenz $f_1= \SI{1}{\kilo\hertz}, f_2 = \SI{0}{\hertz}$, Trägerfrequenz $f_\text{T}\SI{1}{\kilo\hertz}$ und Modulationsgrad $m = 0,03$ ohne Demodulation.}
+			\label{fig:dam_betrag}	
+		\end{figure} 
