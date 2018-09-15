@@ -1,4 +1,4 @@
-\section{Kennenlernen von LabVIEW}
+\section{Grundlegendes Prinzip von LabVIEW}
 
 	% Einführung LabView
 	% VI Bedeutung, weil ich das als ABkürzung ständig verwendet aber nicht erläutert habe
@@ -6,3 +6,54 @@
 	% Fakultät
 	% Sinus
 	% Lissajou
+	
+Das Erstellen eines Programmes in LabVIEW findet über eine grafische Oberfläche statt, welche in zwei Bereiche aufgeteilt ist.
+Das \textbf{Frontpanel} beinhaltet Steuerelemente zur Interaktion mit dem Nutzer des Programmes. Beispiel für solche Steuerelemente sind Schalter, Regler oder Diagramme. Das \textbf{Blockdiagramm} beinhaltet Funktionsblöcke sowie Repräsentationen der auf dem Frontpanel befindlichen Steuerelemente, die mit Verbindungslinien verbunden werden, welche den Datenfluss steuern.
+Die in LabVIEW erstellten Programme liegen in Form sogenannter VIs (virtual instruments) vor. Jedes Programm ist eigenständig lauffähig, kann aber auch als Unterprogramm in anderen VIs verwendet werden.
+
+\subsection{Produkt und Fakultät}
+
+Zur Verinnerlichung dieses Prinzips wurde ein Programm mit vergleichsweise einfachem Aufbau konstruiert, mit welchem das Produkt zweier Zahlen, und die Fakultät einer Zahl berechnet werden konnte. Das Blockdiagramm und das Frontpanel sind in der folgenden Abbildung 1 dargestellt.
+
+\
+
+\textbf{Hier Bilder zu Produkt und Fakultät einfügen.} Bildbeschreibung: Diese Grafik zeigt das Blockdiagramm (links) und das Frontpanel (rechts) des besagten Programmes zur Berechnung von Produkten und Fakultäten. Es ist der Output des Programmes für drei beispielhafte Zahlen zu sehen.
+
+\
+
+Im unteren Teil des Blockdiagrammes (Abb. 1 u.r.) ist der (grafische) Code zur Berechnung des Produktes zweier Zahlen enthalten. Die beiden Datenquellen (Variablen des Typs Double mit den Bezeichnungen Faktor 1 und Faktor 2) sind mit einem Funktionsblock verbunden, welcher die mathematische Operation der Multiplikation durchführt. Der Output des Funktionsblockes ist mit einem Indikator (Datensenke) verbunden. Die Datenquellen und -senken sind Bedien- und Anzeigeelementen auf dem Frontpanel verknüpft (Abb. 1 u.l.).
+
+Im oberen Teil des Blockdiagrammes (Abb. 1 o.l.) ist der Code zur Berechnung der Fakultät der Variable n (Typ: Double) enthalten. Die Datenquelle ist mit einer for-Schleife (umrandetes Rechteck) verbunden und gibt die Zahl der Wiederholungen an. Die for-Schleife beinhaltet ein Schieberegister (Startwert: 1, bestimmt durch die Konstante links außerhalb der Schleife), das Inkrement (Startwert: 0), und einen Multiplikationsoperator.
+
+In jedem Schleifendurchlauf wird das Inkrement mit dem aktuellen Inhalt des Schieberegisters multipliziert, und das Ergebnis der Multiplikation als neuer Wert des Registers übernommen. Um eine Multiplikation mit Null zu vermeiden wird das Inkrement durch den „+1“-Block zusätzlich um 1 erhöht. Der Inhalt des Schieberegisters wird nach Durchlauf der Schleife an eine Datensenke weitergereicht. Wie auch beim Programmteil zur Berechnung des Produktes sind Datenquelle und -senke mit entsprechenden Elementen auf dem Frontpanel verbunden.
+
+\subsection{Programm zum Sinus}
+
+Nach Fertigstellung des VIs zur Berechnung von Produkt und Fakultät wurde ein Programm geschrieben, welches ein Array mit Funktionswerten einer Sinusfunktion füllte und grafisch ausgab. Genauer wurde eine Sinusfunktion des Typs $A\cdot \sin( \omega t + \Phi)$ realisiert, mit variabler Amplitude $A$, Winkelgeschwindigkeit $ \omega=2 \pi f$ und Phase $\Phi$. Blockdiagramm und Frontpanel des Programms sind in der folgenden Abbildung 2 dargestellt.
+
+\
+
+\textbf{Blockdiagramm und Frontpanel zum Sinus einfügen!}
+
+\
+
+Zur Berechnung der Zeitlichen Komponente $t$ der Funktion wurde eine for-Schleife verwendet (vgl. Abb. 2 o.l.). Diese erhält als Input einen Wert N, und gibt in jeden Durchlauf den Wert i/N aus, so dass die Zeitreihe 0/N, 1/N, …, (N-1)/N entsteht. Diese wird als Definitionsmenge („x-Wert“) an das Array weitergereicht. Zur Berechnung des Wertebereichs wird die mit der for-Schleife berechnete Zeitkomponente mit der Konstante $2 \pi$ und der variablen Frequenz $f$ multipliziert. Zu dem Produkt wird anschließend die variable Phase phi addiert. Mittels einem von LabVIEW zur Verfügung gestellten Funktionsblock wird der Sinus der Summe berechnet, welcher anschließend mit der Amplitude A multipliziert wird. Das gefüllte Array wird an den Funktionsblock „XY Graph 2“ weitergereicht, mit dessen Hilfe die Daten auf dem Frontpanel grafisch dargestellt werden. Um einzelne Werte des Arrays überprüfen zu können, wird der Wertebereich zusätzlich mit einem Indicator verbunden („sin(t\_ i)“, vgl. Abb. 2 unten).
+Auf dem Frontpanel (vgl. Abb. 3) sind die mit den Variablen N, f, phi  und A verknüpften Steuerelemente, der Graph und der Indicator zu sehen. 
+
+\subsection{Programm zu den Lissajous-Figuren}
+
+Um die Funktion von VIs als Unterprogramme zu zeigen, wurde ein Programm erstellt, welches mit Hilfe des vorher erstellten Sinus.vi Lissajous-Figuren zeichnen kann. Als Lissajous-Figuren werden werden Überlagerungskurven zweier orthogonal aufeinander stehender harmonischer Schwingungen bezeichnet. Diese lassen sich mathematisch als Abbildungen folgender Form beschreiben:
+
+\
+
+(Hier dieses Vektording einfügen)
+
+\
+
+Zum Zeichnen der Figuren wurde ein s.g. Express.vi verwendet, welches aus einem „X Input“ und einem „Y Input“ in dynamischem Format ohne weitere Einstellungen einen „XY Graph“ erstellt. Für die beiden Inputs wurde jeweils das vorher erstellte Sinus-Programm verwendet. Letzteres wurde so eingestellt, dass es Amplitude, Frequenz und Phase als Input entgegennimmt, und das mit den Funktionswerten gefüllte Array ausgibt.
+
+Das Express.vi samt In- und Output wurde in einer While-Schleife platziert, damit die Parameter während der Ausführung des Programmes geändert werden können, und die Änderungen direkt sichtbar werden. Man beachte den „stop“-Button (vgl. Abb. u.r.), mit dem die Schleife unterbrochen wird, und die Clock (vgl. Abb. o.r.), welche die Wartezeit zwischen zwei Schleifendurchläufen bestimmt. Letztere wurde auf einen Wert von 100 ms eingestellt, welcher gering genug ist um das Programm subjektiv flüssig darzustellen, aber hoch genug um die CPU-Auslastung merklich zu reduzieren.
+
+\
+
+\textbf{Hier die Bilder zum Lissajous-Programm einfügen.}
