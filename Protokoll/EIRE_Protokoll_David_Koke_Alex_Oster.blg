@@ -1,9 +1,15 @@
 [0] Config.pm:302> INFO - This is Biber 2.10
 [0] Config.pm:305> INFO - Logfile is 'EIRE_Protokoll_David_Koke_Alex_Oster.blg'
-[32] biber-MSWIN64:313> INFO - === 
-[81] Biber.pm:371> INFO - Reading 'EIRE_Protokoll_David_Koke_Alex_Oster.bcf'
-[155] Biber.pm:857> INFO - Found 0 citekeys in bib section 0
-[161] Utils.pm:193> WARN - The file 'EIRE_Protokoll_David_Koke_Alex_Oster.bcf' does not contain any citations!
-[167] bbl.pm:617> INFO - Writing 'EIRE_Protokoll_David_Koke_Alex_Oster.bbl' with encoding 'UTF-8'
-[167] bbl.pm:720> INFO - Output to EIRE_Protokoll_David_Koke_Alex_Oster.bbl
-[170] Biber.pm:110> INFO - WARNINGS: 1
+[25] biber-MSWIN64:313> INFO - === 
+[50] Biber.pm:371> INFO - Reading 'EIRE_Protokoll_David_Koke_Alex_Oster.bcf'
+[125] Biber.pm:857> INFO - Found 1 citekeys in bib section 0
+[141] Biber.pm:3976> INFO - Processing section 0
+[152] Biber.pm:4136> INFO - Looking for bibtex format file 'res/literatur.bib' for section 0
+[157] bibtex.pm:1490> INFO - LaTeX decoding ...
+[162] bibtex.pm:1306> INFO - Found BibTeX data source 'res/literatur.bib'
+[177] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[177] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[177] Biber.pm:3804> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[177] Biber.pm:3810> INFO - No sort tailoring available for locale 'de-DE'
+[182] bbl.pm:617> INFO - Writing 'EIRE_Protokoll_David_Koke_Alex_Oster.bbl' with encoding 'UTF-8'
+[183] bbl.pm:720> INFO - Output to EIRE_Protokoll_David_Koke_Alex_Oster.bbl
