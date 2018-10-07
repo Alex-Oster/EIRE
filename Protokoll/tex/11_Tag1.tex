@@ -1,10 +1,10 @@
 \section{Grundlegendes Prinzip von LabVIEW}
 
 Das Erstellen eines Programmes in LabVIEW findet über eine grafische Oberfläche statt, welche in zwei Bereiche aufgeteilt ist.
-Das \textbf{Frontpanel} beinhaltet Steuerelemente zur Interaktion mit dem Nutzer des Programmes. Beispiel für solche Steuerelemente sind Schalter, Regler oder Diagramme. Das \textbf{Blockdiagramm} beinhaltet Funktionsblöcke sowie Repräsentationen der auf dem Frontpanel befindlichen Steuerelemente, die mit Verbindungslinien verbunden werden, welche den Datenfluss steuern.
+Das \textbf{Frontpanel} beinhaltet Steuerelemente zur Interaktion mit dem Nutzer des Programmes. Beispiel für solche Steuerelemente sind Schalter, Regler und Diagramme. Das \textbf{Blockdiagramm} beinhaltet Funktionsblöcke sowie Repräsentationen der auf dem Frontpanel befindlichen Steuerelemente, die mit Verbindungslinien verbunden werden, welche den Datenfluss steuern.
 Die in LabVIEW erstellten Programme liegen in Form sogenannter VIs (virtual instruments) vor. Jedes Programm ist eigenständig lauffähig, kann aber auch als Unterprogramm in anderen VIs verwendet werden.
 
-\subsection{Produkt und Fakultät}
+\subsection{Berechnung von Produkt und Fakultät}
 
 Zur Verinnerlichung dieses Prinzips wurde ein Programm mit vergleichsweise einfachem Aufbau konstruiert, mit welchem das Produkt zweier Zahlen, und die Fakultät einer Zahl berechnet werden konnte. Das Blockdiagramm und das Frontpanel sind in Abbildung \ref{fig:fup} dargestellt.
 
@@ -28,17 +28,19 @@ Zur Verinnerlichung dieses Prinzips wurde ein Programm mit vergleichsweise einfa
 
 \
 
-Im unteren Teil des Blockdiagrammes (Abb. \ref{fig:fup} u.r.) ist der (grafische) Code zur Berechnung des Produkts zweier Zahlen enthalten. Die beiden Datenquellen (Variablen des Typs Double mit den Bezeichnungen Faktor 1 und Faktor 2) sind mit einem Funktionsblock verbunden, welcher die mathematische Operation der Multiplikation durchführt. Der Output des Funktionsblockes ist mit einem Indikator (Datensenke) verbunden. Die Datenquellen und -senken sind Bedien- und Anzeigeelementen auf dem Frontpanel verknüpft (Abb. \ref{fig:fup} u.l.).
+Im unteren Teil des Blockdiagrammes (Abb. \ref{fig:fup} u.r.) ist der (grafische) Code zur Berechnung des Produkts zweier Zahlen enthalten. Die beiden Datenquellen (Variablen des Typs Double mit den Bezeichnungen Faktor 1 und Faktor 2) sind mit einem Funktionsblock verbunden, welcher die mathematische Operation der Multiplikation durchführt. Der Output des Funktionsblockes ist mit einem Indikator (Datensenke) verbunden. Die Datenquellen und -senken sind mit Bedien- und Anzeigeelementen auf dem Frontpanel verknüpft (Abb. \ref{fig:fup} u.l.).
 
 Im oberen Teil des Blockdiagrammes (Abb. \ref{fig:fup} o.l.) ist der Code zur Berechnung der Fakultät der Variable n (Typ: Double) enthalten. Die Datenquelle ist mit einer for-Schleife (umrandetes Rechteck) verbunden und gibt die Zahl der Wiederholungen an. Die for-Schleife beinhaltet ein Schieberegister (Startwert: 1, bestimmt durch die Konstante links außerhalb der Schleife), das Inkrement (Startwert: 0), und einen Multiplikationsoperator.
 
 In jedem Schleifendurchlauf wird das Inkrement mit dem aktuellen Inhalt des Schieberegisters multipliziert, und das Ergebnis der Multiplikation als neuer Wert des Registers übernommen. Um eine Multiplikation mit Null zu vermeiden wird das Inkrement durch den „+1“-Block zusätzlich um 1 erhöht. Der Inhalt des Schieberegisters wird nach Durchlauf der Schleife an eine Datensenke weitergereicht. Wie auch beim Programmteil zur Berechnung des Produktes sind Datenquelle und -senke mit entsprechenden Elementen auf dem Frontpanel verbunden.
 
-\subsection{Programm zum Sinus}
+\subsection{Programm zur Darstellung einer Sinusfunktion}
 
 Nach Fertigstellung des VIs zur Berechnung von Produkt und Fakultät wurde ein Programm geschrieben, welches ein Array mit Funktionswerten einer Sinusfunktion füllte und grafisch ausgab. Genauer wurde eine Sinusfunktion des Typs $A\cdot \sin( \omega t + \Phi)$ realisiert, mit variabler Amplitude $A$, Winkelgeschwindigkeit $ \omega=2 \pi f$ und Phase $\Phi$. Blockdiagramm und Frontpanel des Programms sind in Abbildung \ref{fig:sinus} dargestellt.
 
 \
+
+Zur Berechnung der Zeitlichen Komponente $t$ der Funktion wurde eine for-Schleife verwendet (vgl. Abb. \ref{fig:sinusB} o.l.). Diese erhält als Input einen Wert $N$, und gibt in jeden Durchlauf den Wert $i/N$ aus, so dass die Zeitreihe $0/N$, $1/N$, …, $(N-1)/N$ entsteht. Diese wird als Definitionsmenge an das Array weitergereicht.
 
 \begin{figure}[H]
 	\centering
@@ -48,6 +50,11 @@ Nach Fertigstellung des VIs zur Berechnung von Produkt und Fakultät wurde ein P
 		\caption{Blockdiagramm des Sinus-VI}
 		\label{fig:sinusB}
 	\end{subfigure}
+	
+	\
+	
+	\
+	
 	\begin{subfigure}[c]{\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{pic/sinFront.png}
@@ -60,12 +67,14 @@ Nach Fertigstellung des VIs zur Berechnung von Produkt und Fakultät wurde ein P
 
 \
 
-Zur Berechnung der Zeitlichen Komponente $t$ der Funktion wurde eine for-Schleife verwendet (vgl. Abb. \ref{fig:sinusB} o.l.). Diese erhält als Input einen Wert $N$, und gibt in jeden Durchlauf den Wert $i/N$ aus, so dass die Zeitreihe $0/N$, $1/N$, …, $(N-1)/N$ entsteht. Diese wird als Definitionsmenge ("$x$-Wert") an das Array weitergereicht. Zur Berechnung des Wertebereichs wird die mit der for-Schleife berechnete Zeitkomponente mit der Konstante $2 \pi$ und der variablen Frequenz $f$ multipliziert. Zu dem Produkt wird anschließend die variable Phase $phi$ addiert. Mittels einem von LabVIEW zur Verfügung gestellten Funktionsblock wird der Sinus der Summe berechnet, welcher anschließend mit der Amplitude $A$ multipliziert wird. Das gefüllte Array wird an den Funktionsblock „XY Graph 2“ weitergereicht, mit dessen Hilfe die Daten auf dem Frontpanel grafisch dargestellt werden. Um einzelne Werte des Arrays überprüfen zu können, wird der Wertebereich zusätzlich mit einem Indikator verbunden ("$\sin(t_i)$", vgl. Abb. \ref{fig:sinusB} unten).
-Auf dem Frontpanel (vgl. Abb. \ref{fig:sinusF}) sind die mit den Variablen $N$, $f$, $phi$  und $A$ verknüpften Steuerelemente, der Graph und der Indikator zu sehen. 
+\
 
-\subsection{Programm zu den Lissajous-Figuren}
+Zur Berechnung des Wertebereichs wird die mit der for-Schleife berechnete Zeitkomponente mit der Konstante $2 \pi$ und der variablen Frequenz $f$ multipliziert. Zu dem Produkt wird anschließend die variable Phase $\Phi$ addiert. Mittels einem von LabVIEW zur Verfügung gestellten Funktionsblock wird der Sinus der Summe berechnet, welcher anschließend mit der Amplitude $A$ multipliziert wird. Das gefüllte Array wird an den Funktionsblock „XY Graph 2“ weitergereicht, mit dessen Hilfe die Daten auf dem Frontpanel grafisch dargestellt werden. Um einzelne Werte des Arrays überprüfen zu können, wird der Wertebereich zusätzlich mit einem Indikator verbunden ("$\sin(t_i)$", vgl. Abb. \ref{fig:sinusB} unten).
+Auf dem Frontpanel (vgl. Abb. \ref{fig:sinusF}) sind die mit den Variablen $N$, $f$, $\Phi$  und $A$ verknüpften Steuerelemente, der Graph und der Indikator zu sehen. 
 
-Um die Funktion von VIs als Unterprogramme zu zeigen, wurde ein Programm erstellt, welches mit Hilfe des vorher erstellten Sinus-VI Lissajous-Figuren zeichnen kann. Als Lissajous-Figuren werden werden Überlagerungskurven zweier orthogonal aufeinander stehender harmonischer Schwingungen bezeichnet. Diese lassen sich mathematisch als Abbildungen folgender Form beschreiben:
+\subsection{Programm zur Darstellung von Lissajous-Figuren}
+
+Um die Funktion von VIs als Unterprogramme zu zeigen, wurde ein Programm erstellt, welches mit Hilfe des vorher erstellten Sinus-VI Lissajous-Figuren zeichnen kann. Als Lissajous-Figuren werden Überlagerungskurven zweier orthogonal aufeinander stehender harmonischer Schwingungen bezeichnet. Diese lassen sich mathematisch als Abbildungen folgender Form beschreiben:
 
 \
 
@@ -79,7 +88,7 @@ Um die Funktion von VIs als Unterprogramme zu zeigen, wurde ein Programm erstell
 
 \
 
-Zum Zeichnen der Figuren wurde ein s.g. Express-VI verwendet, welches aus einem "X-Input" und einem "Y-Input" in dynamischem Format ohne weitere Einstellungen einen „XY Graph“ erstellt. Für die beiden Inputs wurde jeweils das vorher erstellte Sinus-Programm verwendet. Letzteres wurde so eingestellt, dass es Amplitude, Frequenz und Phase als Input entgegennimmt, und das mit den Funktionswerten gefüllte Array ausgibt.
+Zum Zeichnen der Figuren wurde ein s.g. Express-VI verwendet, welches aus einem "X-Input" und einem "Y-Input" in dynamischem Format ohne weitere Einstellungen einen „XY Graph“ erstellt (vgl. Blockdiagramm, Abb. \ref{fig:LissajouBlock}). Für die beiden Inputs wurde jeweils das vorher erstellte Sinus-Programm verwendet. Letzteres wurde so eingestellt, dass es Amplitude, Frequenz und Phase als Input entgegennimmt, und das mit den Funktionswerten gefüllte Array ausgibt.
 
 \
 
@@ -92,7 +101,7 @@ Zum Zeichnen der Figuren wurde ein s.g. Express-VI verwendet, welches aus einem 
 
 \
 
-Das Express-VI samt In- und Output wurde in einer While-Schleife platziert, damit die Parameter während der Ausführung des Programmes geändert werden können, und die Änderungen direkt sichtbar werden. Man beachte den „stop“-Button (vgl. Abb. \ref{fig:LissajouBlock} u.r.), mit dem die Schleife unterbrochen wird, und die Clock (vgl. Abb. \ref{fig:LissajouBlock} o.r.), welche die Wartezeit zwischen zwei Schleifendurchläufen bestimmt. Letztere wurde auf einen Wert von\SI{100}{\milli\second} eingestellt, welcher gering genug ist um das Programm subjektiv flüssig darzustellen, aber hoch genug um die CPU-Auslastung merklich zu reduzieren.
+Das Express-VI samt In- und Output wurde in einer While-Schleife platziert, damit die Parameter während der Ausführung des Programmes geändert werden können, und die Änderungen direkt sichtbar werden. Man beachte den „stop“-Button (vgl. Abb. \ref{fig:LissajouBlock} u.r.), mit dem die Schleife unterbrochen wird, und die Clock (vgl. Abb. \ref{fig:LissajouBlock} o.r.), welche die Wartezeit zwischen zwei Schleifendurchläufen bestimmt. Letztere wurde auf einen Wert von \SI{100}{\milli\second} eingestellt, welcher gering genug ist um das Programm subjektiv flüssig darzustellen, aber hoch genug um die CPU-Auslastung merklich zu reduzieren.
 Beispiele für zwei Lissajou-Figuren sind in Abb. \ref{fig:LissajouFront} zu sehen.
 \
 
