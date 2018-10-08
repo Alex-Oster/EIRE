@@ -1,5 +1,5 @@
 
-Zu Beginn des dritten Tages wurde die Arbeit an der Messstruktur fortgesetzt.
+Nach Abschluss der Wartungsarbeiten wurde die Arbeit an der Messstruktur fortgesetzt.
 Abb. \ref{fig:messstruktur} stellt das Endprodukt für diesen Aufgabenteil dar.
 \newpage
 \thispagestyle{empty}
@@ -171,6 +171,9 @@ Hierzu liegt dem Aufbau folgende Formel zu Grunde:
 	\label{eq:AM2} \text{mit dem Signal} \quad S(t) &= A_1 \cdot \sin{(2\pi f_1 t)} + A_2 \cdot \sin{(2\pi f_2 t)}\\
 	\label{eq:AM3} \text{und dem Träger} \quad T(t) &= s_\text{T} \cdot \sin{(2\pi f_\text{T} t)}.
 \end{align} 
+
+\
+
 Aufgrund der Beschränkung der Soundkarte auf Signale mit maximaler Amplitude von einem Volt, wird der Modulationsgrad $m$ variabel gehalten, aber $s_\text{T}$ auf $\frac{1}{mA_1 + mA_2 + 1}$ normiert. 
 $A_{1/2}$ sind dabei die Amplituden der beiden Sinusschwingungen aus denen das zu modulierende Signal besteht und $f_{1/2}$ die jeweiligen Frequenzen, analog $f_\text{T}$ die Frequenz für den Träger.
 
@@ -199,6 +202,8 @@ Auf die anderen Cases wird später eingegangen, da diese erst im Nachhinein in d
 	
 \
 
+\
+
 Zurück zu dem AM-Case: Hier sind die Rechnungen aus den Gleichungen \ref{eq:AM1} und \ref{eq:AM3} mit normierter Amplitude nachgestellt.
 Das Sinus-VI in dem Case stellt hierbei das Trägersignal dar, welches ebenfalls die Zahl der Datenpunkte von 44100 und Phase null besitzt.
 Zur Darstellung des modulierten Signals sind zudem ein Waveform-Builder und zwei damit verbundene Graphen hinzugefügt worden, damit man dieses im Zeit- und Frequenzbild auf dem Frontpanel betrachten kann.
@@ -213,7 +218,7 @@ In Abbildung \ref{fig:am_example} ist dieses Frontpanel für ein Beispielsignal 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.95\textwidth]{pic/am_example.png}
+	\includegraphics[width=0.8\textwidth]{pic/am_example.png}
 	\caption{Frontpanel des Modulation-VIs bei AM mit Beispielsignal und einstellbaren Parametern.}
 	\label{fig:am_example}	
 \end{figure} 
@@ -281,6 +286,8 @@ Ansonsten ist das VI im wesentlichen das gleiche wie in Abb. \ref{fig:messstrukt
 	\caption{Alternative Fälle für den Case für die Demodulationsart in Abb. \ref{fig:messstruktur_dam}.}
 	\label{fig:messstruktur_dam_case}	
 \end{figure}
+
+\
 
 Wie bereits zuvor erwähnt, war das Ende der Modulations-VI zunächst falsch verkabelt.
 Die Darstellungen für das Frontpanel der erweiterten Messstruktur wurden deshalb mit Hilfe eines von dem Funktionsgenerator ausgehenden Signals aufgenommen.
